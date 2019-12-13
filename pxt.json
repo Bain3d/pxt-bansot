@@ -1,0 +1,18 @@
+{
+    "name": "bansot",
+    "version": "0.2.1",
+    "description": "Bansot extention for microsoft",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "bansot.ts",
+        "_locales/zh/bansot-strings.json"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true
+}
