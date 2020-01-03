@@ -87,6 +87,7 @@ namespace bansot {
 
     let initialized = false
     let initializedMatrix = false
+    let bansot_neoStrip: neopixel.Strip;
     let matBuf = pins.createBuffer(17);
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -456,10 +457,10 @@ namespace bansot {
     //% blockId="bansot_rgb" block="RGB"
     //% weight=5
     export function rgb(): neopixel.Strip {
-        if (!neoStrip) {
-            neoStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+        if (!bansot_neoStrip) {
+            bansot_neoStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
         }
-        return neoStrip;
+        return bansot_neoStrip;
     }
 }
  
