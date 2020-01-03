@@ -4,7 +4,7 @@
     "description": "Bansot extention for microsoft",
     "license": "MIT",
     "dependencies": {
-        "core": "*"
+        "core": "*",
         "neopixel": "github:kittenbot/pxt-neopixel#v0.6.13"
     },
     "files": [
@@ -15,6 +15,5 @@
     "testFiles": [
         "test.ts"
     ],
-    "public": true,
-    "preferredEditor": "tsprj"
+    "public": true
 }
