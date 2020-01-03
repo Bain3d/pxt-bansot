@@ -450,7 +450,16 @@ namespace bansot {
         MotorRun(1, 0);
         MotorRun(2, 0);
     }
-
-
+    /**
+     * Init RGB pixels mounted
+     */
+    //% blockId="bansot_rgb" block="RGB"
+    //% weight=5
+    export function rgb(): neopixel.Strip {
+        if (!neoStrip) {
+            neoStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+        }
+        return neoStrip;
+    }
 }
  
