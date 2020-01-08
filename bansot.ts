@@ -85,7 +85,7 @@ namespace bansot {
         T5B0 = 1800
     }
 
-    enum echoPinUnit {
+    export enum echoPinUnit {
         //% block="μs"
         MicroSeconds,
         //% block="cm"
