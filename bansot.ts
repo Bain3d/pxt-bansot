@@ -85,6 +85,15 @@ namespace bansot {
         T5B0 = 1800
     }
 
+    enum echoPinUnit {
+        //% block="μs"
+        MicroSeconds,
+        //% block="cm"
+        Centimeters,
+        //% block="inches"
+        Inches
+    }
+
     let initialized = false
     let initializedMatrix = false
     let bansot_neoStrip: neopixel.Strip;
@@ -461,6 +470,33 @@ namespace bansot {
             bansot_neoStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
         }
         return bansot_neoStrip;
+    }
+
+    /**
+     * Get the distance by the ultrasonic sensor at 14(trig) an 15 (echo)
+     * @param unit desired conversion unit
+     * @param maxCmDistance maximum distance in centimeters (default is 500)
+     */
+    //% blockId=bansot_sonar block="Get distance by %unit"
+    export function sonar(unit: echoPinUnit, maxCmDistance = 500): number {
+        // send pulse
+        let trig = DigitalPin.P14;
+        let echo = DigitalPin.P15;
+        pins.setPull(trig, PinPullMode.PullNone);
+        pins.digitalWritePin(trig, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(trig, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(trig, 0);
+
+        // read pulse
+        const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 58);
+
+        switch (unit) {
+            case echoPinUnit.Centimeters: return Math.idiv(d, 58);
+            case echoPinUnit.Inches: return Math.idiv(d, 148);
+            default: return d;
+        }
     }
 }
  
