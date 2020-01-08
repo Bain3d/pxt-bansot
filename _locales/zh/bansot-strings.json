@@ -15,5 +15,5 @@
 	"bansot.DualSpeedDelay|block": "左轮速度 %speedL|右轮速度 %speedR|延时(毫秒) %delay",
 	"bansot.CountCross|block": "循迹数路口|速度 %speed|左路口数 %crossL|右路口数 %crossR|停车延时(毫秒) %delay",
 	"bansot.rgb|block": "彩灯",
-	"bansot_sonar|block": "超声波距离|单位 %unit"
+	"bansot.sonar|block": "超声波距离|单位 %unit"
 }
