@@ -14,6 +14,15 @@
 
 MIT
 
+## Blocks Preview
+![Example](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/code_example.png)
+
+## Products images
+![BK-1](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/BK-1.jpg)
+![BK-1 Parts](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/BK-1_Parts.jpg)
+![S4 suit](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/S4CreativeSuit.jpg)
+![S4 Parts](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/S4CeativeSuitParts.jpg)
+
 ## Supported targets
 
 * for PXT/microbit
