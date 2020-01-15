@@ -14,6 +14,35 @@
 
 MIT
 
+## Code example
+~~~javascript
+bansot.Forward(150, 100) //car forward(speed 150, delay 100ms) 
+
+bansot.TurnRight(150, 100) //turn right(speed 150, dalay 100ms to stop)
+
+bansot.CountCross(150, 0, 0, 0)//(speed,left cross No,right cross no,stop delay)
+/*  Count Cross and stop
+    You need 4 linetrack sensor attched to pin 12 13 14 15
+
+                  |       |
+                  | black |
+                  | line  |
+                  |       |
+      P15    P14  |       |   P13   P12
+                  |       |
+    
+    Speed: moving speed
+    left cross No.: The number of crosses you need P15 sensor to count
+    right cross No.: The number of crosses you need P12 sensor to count
+    stop delay: delay time and stop when the car get the target cross.
+    Use one side count numbers at a time left another size count number "0";
+*/
+
+bansot.sonar(bansot.echoPinUnit.MicroSeconds)
+// get the distence by the ultrasonic sensor attched to P14(trig) and P15(echo)
+~~~
+
+
 ## Blocks Preview
 ![Example](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/code_example.png)
 
