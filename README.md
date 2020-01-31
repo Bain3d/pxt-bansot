@@ -53,14 +53,14 @@ bansot.sonar(bansot.echoPinUnit.MicroSeconds)
 * for PXT/microbit
 (The metadata above is needed for package search.)
 
-## Get out products
-microbit creative suit: 
+## Purchase products
+microbit creative suite: 
 https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.4f6b1deb9MD87J&ft=t&id=611606827117
 
 BK-1 mecanum robo-tank suit: 
 https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.30d31debRJjzFC&ft=t&id=611119177609
 
-## Prodcuts instructions
+## Product instructions
 BK-1 robot:
 https://github.com/Bain3d/BK-1/blob/master/doc/BK-1%20Intelligent%20Robot%20Kit%20Assembly%20Instruction.pdf
 
