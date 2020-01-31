@@ -42,10 +42,6 @@ bansot.sonar(bansot.echoPinUnit.MicroSeconds)
 // get the distence by the ultrasonic sensor attched to P14(trig) and P15(echo)
 ~~~
 
-
-## Blocks Preview
-![Example](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/code_example.png)
-
 ## Products images
 ![BK-1](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/BK-1.jpg)
 ![BK-1 Parts](https://raw.githubusercontent.com/Bain3d/pxt-bansot/master/images/BK-1_Parts.jpg)
@@ -63,3 +59,8 @@ https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.4f6b1deb9MD87J&ft=t&id=6
 
 BK-1 mecanum robo-tank suit: 
 https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.30d31debRJjzFC&ft=t&id=611119177609
+
+## Prodcuts instructions
+BK-1 robot
+https://github.com/Bain3d/BK-1/blob/master/doc/BK-1%20Intelligent%20Robot%20Kit%20Assembly%20Instruction.pdf
+
