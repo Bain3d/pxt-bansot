@@ -61,6 +61,9 @@ BK-1 mecanum robo-tank suit:
 https://item.taobao.com/item.htm?spm=a2oq0.12575281.0.0.30d31debRJjzFC&ft=t&id=611119177609
 
 ## Prodcuts instructions
-BK-1 robot
+BK-1 robot:
 https://github.com/Bain3d/BK-1/blob/master/doc/BK-1%20Intelligent%20Robot%20Kit%20Assembly%20Instruction.pdf
+
+For more lessons:
+https://www.bansot.com/
 
