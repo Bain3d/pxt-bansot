@@ -201,11 +201,11 @@ namespace bansot {
         pins.i2cWriteBuffer(HT16K33_ADDRESS, matBuf);
     }
 
-	/**
-	 * Servo Execute
-	 * @param index Servo Channel; eg: S1
-	 * @param degree [0-180] degree of servo; eg: 0, 90, 180
-	*/
+    /**
+     * Servo Execute
+     * @param index Servo Channel; eg: S1
+     * @param degree [0-180] degree of servo; eg: 0, 90, 180
+    */
     //% blockId=bansot_servo block="Servo|%index|degree %degree"
     //% weight=100
     //% blockGap=50
@@ -252,13 +252,13 @@ namespace bansot {
     }
 
 
-	/**
-	 * Execute two motors at the same time
-	 * @param motor1 First Motor; eg: M1A, M1B
-	 * @param speed1 [-255-255] speed of motor; eg: 150, -150
-	 * @param motor2 Second Motor; eg: M2A, M2B
-	 * @param speed2 [-255-255] speed of motor; eg: 150, -150
-	*/
+    /**
+     * Execute two motors at the same time
+     * @param motor1 First Motor; eg: M1A, M1B
+     * @param speed1 [-255-255] speed of motor; eg: 150, -150
+     * @param motor2 Second Motor; eg: M2A, M2B
+     * @param speed2 [-255-255] speed of motor; eg: 150, -150
+    */
     //% blockId=bansot_motor_dual block="Motor|%motor1|speed %speed1|%motor2|speed %speed2"
     //% weight=84
     //% speed1.min=-255 speed1.max=255
@@ -269,12 +269,12 @@ namespace bansot {
         MotorRun(motor2, speed2);
     }
 
-	/**
-	 * Execute single motors with delay
-	 * @param index Motor Index; eg: M1A, M1B, M2A, M2B
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	 * @param delay seconde delay to stop; eg: 1
-	*/
+    /**
+     * Execute single motors with delay
+     * @param index Motor Index; eg: M1A, M1B, M2A, M2B
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+     * @param delay seconde delay to stop; eg: 1
+    */
     //% blockId=bansot_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
     //% weight=81
     //% speed.min=-255 speed.max=255
@@ -302,10 +302,10 @@ namespace bansot {
     }
 
     /**
-	 * Forward car with delay
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	 * @param delay seconde delay to stop; eg: 100
-	*/
+     * Forward car with delay
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+     * @param delay seconde delay to stop; eg: 100
+    */
     //% blockId=bansot_forward block="Forward|Speed %speed |Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -317,11 +317,11 @@ namespace bansot {
         MotorRun(2, 0);
     }
 
-	/**
-	 * Back car with delay
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	 * @param delay seconde delay to stop; eg: 100
-	*/
+    /**
+     * Back car with delay
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+     * @param delay seconde delay to stop; eg: 100
+    */
     //% blockId=bansot_back block="Back|speed %speed |delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -333,11 +333,11 @@ namespace bansot {
         MotorRun(2, 0);
     }
 
-	/**
-	 * Turn left with delay
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	 * @param delay seconde delay to stop; eg: 100
-	*/
+    /**
+     * Turn left with delay
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+     * @param delay seconde delay to stop; eg: 100
+    */
     //% blockId=bansot_turn_left block="Turn left|Speed %speed |Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -349,11 +349,11 @@ namespace bansot {
         MotorRun(2, 0);
     }
 
-	/**
-	 * Turn right with delay
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	 * @param delay seconde delay to stop; eg: 100
-	*/
+    /**
+     * Turn right with delay
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+     * @param delay seconde delay to stop; eg: 100
+    */
     //% blockId=bansot_turn_right block="Turn right|Speed %speed |Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -365,10 +365,10 @@ namespace bansot {
         MotorRun(2, 0);
     }
 
-	/**
-	 * Car left speed
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	*/
+    /**
+     * Car left speed
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+    */
     //% blockId=bansot_left_speed block="Left Speed %speed"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -376,10 +376,10 @@ namespace bansot {
         MotorRun(1, speed);
     }
 
-	/**
-	 * Car right speed
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	*/
+    /**
+     * Car right speed
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+    */
     //% blockId=bansot_right_speed block="Right Speed %speed"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -387,10 +387,10 @@ namespace bansot {
         MotorRun(2, speed);
     }
 
-	/**
-	 * Car Dual speed delay
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	*/
+    /**
+     * Car Dual speed delay
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+    */
     //% blockId=bansot_dual_speed_delay block="Left speed %speedL|Right speed %speedR|Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -403,10 +403,10 @@ namespace bansot {
     }
 
     /**
-	 * Tracking count cross
-	 * @param speed [-255-255] speed of motor; eg: 150, -150
-	 * @param delay seconde delay to stop; eg: 0
-	*/
+     * Tracking count cross
+     * @param speed [-255-255] speed of motor; eg: 150, -150
+     * @param delay seconde delay to stop; eg: 0
+    */
     //% blockId=bansot_count_cross block="Tracking & countting|Speed %speed|Left cross No. %crossL|Right cross No. %crossR|Stop Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
@@ -435,12 +435,12 @@ namespace bansot {
             }
             if (pins.digitalReadPin(DigitalPin.P12) == 0) {
                 while (pins.digitalReadPin(DigitalPin.P12) == 0) {
-		    MotorRun(2, speed);
+                    MotorRun(2, speed);
                     MotorRun(1, speed);
-		    if (pins.digitalReadPin(DigitalPin.P15) == 0) {
-			while (pins.digitalReadPin(DigitalPin.P15) == 0);
-			CL += 1;
-		    }
+                    if (pins.digitalReadPin(DigitalPin.P15) == 0) {
+                        while (pins.digitalReadPin(DigitalPin.P15) == 0);
+                        CL += 1;
+                    }
                 }
                 CR += 1;
             }
@@ -448,10 +448,10 @@ namespace bansot {
                 while (pins.digitalReadPin(DigitalPin.P15) == 0) {
                     MotorRun(2, speed);
                     MotorRun(1, speed);
-		    if (pins.digitalReadPin(DigitalPin.P12) == 0) {
-			while (pins.digitalReadPin(DigitalPin.P12) == 0);
-			CR += 1;
-		    }
+                    if (pins.digitalReadPin(DigitalPin.P12) == 0) {
+                        while (pins.digitalReadPin(DigitalPin.P12) == 0);
+                        CR += 1;
+                    }
                 }
                 CL += 1;
             }
@@ -478,10 +478,11 @@ namespace bansot {
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
     //% blockId=bansot_sonar block="Get distance by %unit"
-    export function sonar(unit: echoPinUnit, maxCmDistance = 500): number {
+    export function sonar(unit: echoPinUnit, maxCmDistance = 60): number {
         // send pulse
         let trig = DigitalPin.P14;
         let echo = DigitalPin.P15;
+        let speedFix = 0.65;
         pins.setPull(trig, PinPullMode.PullNone);
         pins.digitalWritePin(trig, 0);
         control.waitMicros(2);
@@ -490,13 +491,15 @@ namespace bansot {
         pins.digitalWritePin(trig, 0);
 
         // read pulse
-        const d = pins.pulseIn(echo, PulseValue.High, maxCmDistance * 58);
-
+        const d = pins.pulseIn(echo, PulseValue.High, (maxCmDistance * 58) / speedFix);
+        if (d != 0) {
+            distanceMS = d;
+        }
         switch (unit) {
-            case echoPinUnit.Centimeters: return Math.idiv(d, 58);
-            case echoPinUnit.Inches: return Math.idiv(d, 148);
-            default: return d;
+            case echoPinUnit.Centimeters: return Math.idiv(distanceMS, 58 * speedFix);
+            case echoPinUnit.Inches: return Math.idiv(distanceMS, 148 * speedFix);
+            default: return distanceMS;
         }
     }
 }
- 
+
