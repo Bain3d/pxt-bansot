@@ -472,6 +472,8 @@ namespace bansot {
         return bansot_neoStrip;
     }
 
+
+    let distanceMS = 0;
     /**
      * Get the distance by the ultrasonic sensor at 14(trig) an 15 (echo)
      * @param unit desired conversion unit
