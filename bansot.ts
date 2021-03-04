@@ -507,7 +507,6 @@ namespace bansot {
 
 //% color="#31C7D5" weight=10 icon="\uf11b"  block="PS手柄"
 namespace ps2controller {
-    //**Reverse blocks -----
     const rbits = hex`
     008040C020A060E0109050D030B070F0088848C828A868E8189858D838B878F8
     048444C424A464E4149454D434B474F40C8C4CCC2CAC6CEC1C9C5CDC3CBC7CFC
@@ -517,6 +516,8 @@ namespace ps2controller {
     058545C525A565E5159555D535B575F50D8D4DCD2DAD6DED1D9D5DDD3DBD7DFD
     038343C323A363E3139353D333B373F30B8B4BCB2BAB6BEB1B9B5BDB3BBB7BFB
     078747C727A767E7179757D737B777F70F8F4FCF2FAF6FEF1F9F5FDF3FBF7FFF`
+
+    let needPoll = false;
 
     function rbit(value: number): number {
         return rbits[value] || 0x00;
@@ -530,7 +531,6 @@ namespace ps2controller {
         }
         return output
     }
-    //**Reverse blocks -----
 
     let chipSelect = DigitalPin.P12
     pins.digitalWritePin(chipSelect, 1)
@@ -617,6 +617,7 @@ namespace ps2controller {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function button_pressed(b: PS2Button): boolean {
         // poll();
+        needPoll = true;
         if (!connected) return false
         switch (b) {
             case PS2Button.Left:
@@ -662,6 +663,7 @@ namespace ps2controller {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function analogValue(b: PS2Analog): number {
         // poll();
+        needPoll = true;
         if (!connected) return 0x00
         switch (b) {
             case PS2Analog.RX:
@@ -690,7 +692,9 @@ namespace ps2controller {
     }
 
     basic.forever(function () {
-        poll();
+        if (needPoll) {
+            poll();
+        }
     })
 }
 
