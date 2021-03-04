@@ -616,7 +616,7 @@ namespace ps2controller {
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function button_pressed(b: PS2Button): boolean {
-        poll();
+        // poll();
         if (!connected) return false
         switch (b) {
             case PS2Button.Left:
@@ -661,7 +661,7 @@ namespace ps2controller {
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function analogValue(b: PS2Analog): number {
-        poll();
+        // poll();
         if (!connected) return 0x00
         switch (b) {
             case PS2Analog.RX:
@@ -689,8 +689,8 @@ namespace ps2controller {
         return true
     }
 
-    // basic.forever(function () {
-    //     // poll();
-    // })
+    basic.forever(function () {
+        poll();
+    })
 }
 
