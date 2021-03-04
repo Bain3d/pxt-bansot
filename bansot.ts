@@ -505,7 +505,7 @@ namespace bansot {
     }
 }
 
-//% color="#31C7D5" weight=10 icon="\uf1d1"  block="PS手柄"
+//% color="#31C7D5" weight=10 icon="\uf11b"  block="PS手柄"
 namespace ps2controller {
     //**Reverse blocks -----
     const rbits = hex`
