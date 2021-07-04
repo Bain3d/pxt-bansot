@@ -1,9 +1,9 @@
+
 /*
 modified from pxt-servo/servodriver.ts
 load dependency
 "bansot": "file:../pxt-bansot"
 */
-
 
 //% color="#2eaa55" weight=10 icon="\uf1a3" block="Bansot"
 namespace bansot {
@@ -533,14 +533,10 @@ namespace ps2controller {
     }
 
     let chipSelect = DigitalPin.P12
-    pins.digitalWritePin(chipSelect, 1)
-
-    pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
-    pins.spiFormat(8, 3)
-    pins.spiFrequency(250000)
-
-    let pad = pins.createBuffer(6)
-    let connected = false
+    let pad = pins.createBuffer(6);
+    let connected = false;
+    let serviceStarted = false;
+    
 
     const poll_cmd = hex
         `014200000000000000`
@@ -548,10 +544,10 @@ namespace ps2controller {
     function send_command(transmit: Buffer): Buffer {
         // 处理位顺序
         transmit = rbuffer(transmit)
-
         let receive = pins.createBuffer(transmit.length);
 
         pins.digitalWritePin(chipSelect, 0);
+        
         // 实际发送命令
         for (let i = 0; i < transmit.length; i++) {
             receive[i] = pins.spiWrite(transmit[i]);
@@ -560,64 +556,76 @@ namespace ps2controller {
 
         // 处理位顺序
         receive = rbuffer(receive)
-
         return receive
     }
 
     export enum PS2Button {
-        //% blockId="Left" block="向左方向键"
+        //% blockId="Left" block="Left"
         Left,
-        //% blockId="Down" block="向下方向键"
+        //% blockId="Down" block="Down"
         Down,
-        //% blockId="Right" block="向右方向键"
+        //% blockId="Right" block="Right"
         Right,
-        //% blockId="Up" block="向上方向键"
+        //% blockId="Up" block="Up"
         Up,
-        //% blockId="Start" block="开始(Start)按键"
+        //% blockId="Start" block="Start"
         Start,
-        //% blockId="Analog_Left" block="右侧摇杆按下"
+        //% blockId="Analog_Left" block="Analog left"
         Analog_Left,
-        //% blockId="Analog_Right" block="左侧摇杆按下"
+        //% blockId="Analog_Right" block="Analog right"
         Analog_Right,
-        //% blockId="Select" block="选择(Select)按键"
+        //% blockId="Select" block="Select"
         Select,
-        //% blockId="Square" block="正方形(□)按键"
+        //% blockId="Square" block="□ Button"
         Square,
-        //% blockId="Cross" block="叉型(×)按键"
+        //% blockId="Cross" block="× Button"
         Cross,
-        //% blockId="Circle" block="圆型(○)按键"
+        //% blockId="Circle" block="○ Button"
         Circle,
-        //% blockId="Triangle" block="三角形(△)按键"
+        //% blockId="Triangle" block="△ Button"
         Triangle,
-        //% blockId="R1" block="R1按键"
+        //% blockId="R1" block="R1 Button"
         R1,
-        //% blockId="L1" block="L1按键"
+        //% blockId="L1" block="L1 Button"
         L1,
-        //% blockId="R2" block="R2按键"
+        //% blockId="R2" block="R2 Button"
         R2,
-        //% blockId="L2" block="L2按键"
+        //% blockId="L2" block="L2 Button"
         L2,
         // //% blockId="Buttons" block="按键(空缺)"
         // Buttons,
     };
     export enum PS2Analog {
-        //% blockId="RX" block="右侧摇杆X"
+        //% blockId="RX" block="Right X"
         RX,
-        //% blockId="RY" block="右侧摇杆Y"
+        //% blockId="RY" block="Right Y"
         RY,
-        //% blockId="LX" block="左侧摇杆x"
+        //% blockId="LX" block="Left X"
         LX,
-        //% blockId="LY" block="左侧摇杆Y"
+        //% blockId="LY" block="Left Y"
         LY,
     }
 
-    //% blockId=bansot_button_pressed block="手柄|%b|按下"
+    function ps_control_service(): void {
+        
+        pins.digitalWritePin(chipSelect, 1)
+        pins.spiPins(DigitalPin.P15, DigitalPin.P14, DigitalPin.P13)
+        pins.spiFormat(8, 3)
+        pins.spiFrequency(250000)
+        serviceStarted = true;
+
+    }
+
+    //% blockId=bansot_button_pressed block="|%b| is pressed"
     //% weight=99
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function button_pressed(b: PS2Button): boolean {
         // poll();
         needPoll = true;
+        if(serviceStarted == false) {
+            ps_control_service();
+        }
         if (!connected) return false
         switch (b) {
             case PS2Button.Left:
@@ -657,13 +665,16 @@ namespace ps2controller {
         }
         return false;
     }
-    //% blockId=bansot_analog_value block="手柄摇杆|%b|的值"
+    //% blockId=bansot_analog_value block="Analog |%b| value"
     //% weight=99
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function analogValue(b: PS2Analog): number {
         // poll();
         needPoll = true;
+        if(serviceStarted == false) {
+            ps_control_service();
+        }
         if (!connected) return 0x00
         switch (b) {
             case PS2Analog.RX:
@@ -683,7 +694,6 @@ namespace ps2controller {
         if (buf[2] != 0x5a) {
             return false;
         }
-
         for (let i = 0; i < 6; i++) {
             pad[i] = buf[3 + i];
         }
@@ -696,5 +706,5 @@ namespace ps2controller {
             poll();
         }
     })
-}
 
+}
