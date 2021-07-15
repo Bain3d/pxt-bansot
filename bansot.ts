@@ -505,7 +505,7 @@ namespace bansot {
     }
 }
 
-//% color="#31C7D5" weight=10 icon="\uf11b"  block="PS手柄"
+//% color="#31C7D5" weight=10 icon="\uf11b"  block="PS Controller"
 namespace ps2controller {
     const rbits = hex`
     008040C020A060E0109050D030B070F0088848C828A868E8189858D838B878F8
