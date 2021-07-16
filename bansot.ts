@@ -616,7 +616,7 @@ namespace ps2controller {
 
     }
 
-    //% blockId=bansot_button_pressed block="手柄|%b|按下"
+    //% blockId=bansot_button_pressed block="|%b|按下"
     //% weight=99
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -665,7 +665,7 @@ namespace ps2controller {
         }
         return false;
     }
-    //% blockId=bansot_analog_value block="摇杆|%b|的值"
+    //% blockId=bansot_analog_value block="|%b|的值"
     //% weight=99
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
