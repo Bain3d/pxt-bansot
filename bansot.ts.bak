@@ -5,7 +5,7 @@ load dependency
 "bansot": "file:../pxt-bansot"
 */
 
-//% color="#2eaa55" weight=10 icon="\uf1a3" block="班世"
+//% color="#2eaa55" weight=10 icon="\uf1a3" block="Bansot"
 namespace bansot {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
@@ -206,7 +206,7 @@ namespace bansot {
      * @param index Servo Channel; eg: S1
      * @param degree [0-180] degree of servo; eg: 0, 90, 180
     */
-    //% blockId=bansot_servo block="舵机|%index|角度 %degree"
+    //% blockId=bansot_servo block="Servo|%index|degree %degree"
     //% weight=100
     //% blockGap=50
     //% degree.min=0 degree.max=180
@@ -223,7 +223,7 @@ namespace bansot {
 
 
 
-    //% blockId=bansot_motor_run block="电机|%index|速度 %speed"
+    //% blockId=bansot_motor_run block="Motor|%index|speed %speed"
     //% weight=85
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -259,7 +259,7 @@ namespace bansot {
      * @param motor2 Second Motor; eg: M2A, M2B
      * @param speed2 [-255-255] speed of motor; eg: 150, -150
     */
-    //% blockId=bansot_motor_dual block="电机|%motor1|速度 %speed1|%motor2|速度 %speed2"
+    //% blockId=bansot_motor_dual block="Motor|%motor1|speed %speed1|%motor2|speed %speed2"
     //% weight=84
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
@@ -275,7 +275,7 @@ namespace bansot {
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 1
     */
-    //% blockId=bansot_motor_rundelay block="电机|%index|速度 %speed|延时 %delay|s"
+    //% blockId=bansot_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
     //% weight=81
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -287,13 +287,13 @@ namespace bansot {
 
 
 
-    //% blockId=bansot_stop block="电机 停止|%index|"
+    //% blockId=bansot_stop block="Motor Stop|%index|"
     //% weight=80
     export function MotorStop(index: Motors): void {
         MotorRun(index, 0);
     }
 
-    //% blockId=bansot_stop_all block="停止所有电机"
+    //% blockId=bansot_stop_all block="Motor Stop All"
     //% weight=79
     export function MotorStopAll(): void {
         for (let idx = 1; idx <= 4; idx++) {
@@ -306,7 +306,7 @@ namespace bansot {
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 100
     */
-    //% blockId=bansot_forward block="前进|速度 %speed |延时(毫秒) %delay"
+    //% blockId=bansot_forward block="Forward|Speed %speed |Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
     export function Forward(speed: number, delay: number): void {
@@ -322,7 +322,7 @@ namespace bansot {
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 100
     */
-    //% blockId=bansot_back block="后退|速度 %speed|延时(毫秒) %delay"
+    //% blockId=bansot_back block="Back|speed %speed |delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
     export function Back(speed: number, delay: number): void {
@@ -338,7 +338,7 @@ namespace bansot {
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 100
     */
-    //% blockId=bansot_turn_left block="左转|速度 %speed |延时(毫秒) %delay"
+    //% blockId=bansot_turn_left block="Turn left|Speed %speed |Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
     export function TurnLeft(speed: number, delay: number): void {
@@ -354,7 +354,7 @@ namespace bansot {
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 100
     */
-    //% blockId=bansot_turn_right block="右转|速度 %speed |延时(毫秒) %delay"
+    //% blockId=bansot_turn_right block="Turn right|Speed %speed |Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
     export function TurnRight(speed: number, delay: number): void {
@@ -369,7 +369,7 @@ namespace bansot {
      * Car left speed
      * @param speed [-255-255] speed of motor; eg: 150, -150
     */
-    //% blockId=bansot_left_speed block="左轮速度 %speed"
+    //% blockId=bansot_left_speed block="Left Speed %speed"
     //% weight=79
     //% speed.min=-255 speed.max=255
     export function LeftSpeed(speed: number): void {
@@ -380,7 +380,7 @@ namespace bansot {
      * Car right speed
      * @param speed [-255-255] speed of motor; eg: 150, -150
     */
-    //% blockId=bansot_right_speed block="右轮速度 %speed"
+    //% blockId=bansot_right_speed block="Right Speed %speed"
     //% weight=79
     //% speed.min=-255 speed.max=255
     export function RightSpeed(speed: number): void {
@@ -391,7 +391,7 @@ namespace bansot {
      * Car Dual speed delay
      * @param speed [-255-255] speed of motor; eg: 150, -150
     */
-    //% blockId=bansot_dual_speed_delay block="左轮速度 %speedL|右轮速度 %speedR|延时(毫秒) %delay"
+    //% blockId=bansot_dual_speed_delay block="Left speed %speedL|Right speed %speedR|Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
     export function DualSpeedDelay(speedL: number, speedR: number, delay: number): void {
@@ -407,7 +407,7 @@ namespace bansot {
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 0
     */
-    //% blockId=bansot_count_cross block="循迹数路口|速度 %speed|左路口数 %crossL|右路口数 %crossR|停车延时(毫秒) %delay"
+    //% blockId=bansot_count_cross block="Tracking & countting|Speed %speed|Left cross No. %crossL|Right cross No. %crossR|Stop Delay(ms) %delay"
     //% weight=79
     //% speed.min=-255 speed.max=255
     //% crossL.min=0 crossL.max=99
@@ -463,7 +463,7 @@ namespace bansot {
     /**
      * Init RGB pixels mounted
      */
-    //% blockId="bansot_rgb" block="彩灯"
+    //% blockId="bansot_rgb" block="RGB"
     //% weight=5
     export function rgb(): neopixel.Strip {
         if (!bansot_neoStrip) {
@@ -479,7 +479,7 @@ namespace bansot {
      * @param unit desired conversion unit
      * @param maxCmDistance maximum distance in centimeters (default is 500)
      */
-    //% blockId=bansot_sonar block="超声波距离|单位 %unit"
+    //% blockId=bansot_sonar block="Get distance by %unit"
     export function sonar(unit: echoPinUnit, maxCmDistance = 60): number {
         // send pulse
         let trig = DigitalPin.P14;
@@ -505,7 +505,7 @@ namespace bansot {
     }
 }
 
-//% color="#31C7D5" weight=10 icon="\uf11b"  block="PS手柄"
+//% color="#31C7D5" weight=10 icon="\uf11b"  block="PS Controller"
 namespace ps2controller {
     const rbits = hex`
     008040C020A060E0109050D030B070F0088848C828A868E8189858D838B878F8
@@ -560,49 +560,49 @@ namespace ps2controller {
     }
 
     export enum PS2Button {
-        //% blockId="Left" block="方向左"
+        //% blockId="Left" block="Left"
         Left,
-        //% blockId="Down" block="方向下"
+        //% blockId="Down" block="Down"
         Down,
-        //% blockId="Right" block="方向右"
+        //% blockId="Right" block="Right"
         Right,
-        //% blockId="Up" block="方向上"
+        //% blockId="Up" block="Up"
         Up,
-        //% blockId="Start" block="Start键"
+        //% blockId="Start" block="Start"
         Start,
-        //% blockId="Analog_Left" block="左摇杆"
+        //% blockId="Analog_Left" block="Analog left"
         Analog_Left,
-        //% blockId="Analog_Right" block="右摇杆"
+        //% blockId="Analog_Right" block="Analog right"
         Analog_Right,
-        //% blockId="Select" block="Select键"
+        //% blockId="Select" block="Select"
         Select,
-        //% blockId="Square" block="□ 键"
+        //% blockId="Square" block="□ Button"
         Square,
-        //% blockId="Cross" block="× 键"
+        //% blockId="Cross" block="× Button"
         Cross,
-        //% blockId="Circle" block="○ 键"
+        //% blockId="Circle" block="○ Button"
         Circle,
-        //% blockId="Triangle" block="△ 键"
+        //% blockId="Triangle" block="△ Button"
         Triangle,
-        //% blockId="R1" block="R1 键"
+        //% blockId="R1" block="R1 Button"
         R1,
-        //% blockId="L1" block="L1 键"
+        //% blockId="L1" block="L1 Button"
         L1,
-        //% blockId="R2" block="R2 键"
+        //% blockId="R2" block="R2 Button"
         R2,
-        //% blockId="L2" block="L2 键"
+        //% blockId="L2" block="L2 Button"
         L2,
         // //% blockId="Buttons" block="按键(空缺)"
         // Buttons,
     };
     export enum PS2Analog {
-        //% blockId="RX" block="右摇杆X"
+        //% blockId="RX" block="Right X"
         RX,
-        //% blockId="RY" block="右摇杆Y"
+        //% blockId="RY" block="Right Y"
         RY,
-        //% blockId="LX" block="左摇杆X"
+        //% blockId="LX" block="Left X"
         LX,
-        //% blockId="LY" block="左摇杆Y"
+        //% blockId="LY" block="Left Y"
         LY,
     }
 
@@ -616,7 +616,7 @@ namespace ps2controller {
 
     }
 
-    //% blockId=bansot_button_pressed block="手柄|%b|按下"
+    //% blockId=bansot_button_pressed block="|%b| is pressed"
     //% weight=99
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -665,7 +665,7 @@ namespace ps2controller {
         }
         return false;
     }
-    //% blockId=bansot_analog_value block="摇杆|%b|的值"
+    //% blockId=bansot_analog_value block="Analog |%b| value"
     //% weight=99
     //% blockGap=50
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
